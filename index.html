@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Encrypted Config Download</title>
+    <meta name="description" content="输入密码后在浏览器本地解密配置，并生成 YAML 下载文件。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero card">
+        <p class="eyebrow">GitHub Pages Config Locker</p>
+        <h1 id="siteTitle">Encrypted Config Download</h1>
+        <p class="lede" id="siteSubtitle">仓库只保存密文；浏览器在输入密码后本地解密，再生成可下载的 YAML 文件。</p>
+        <div class="meta-row">
+          <span class="pill">AES-256-GCM</span>
+          <span class="pill">PBKDF2</span>
+          <span class="pill">Local Decrypt</span>
+        </div>
+      </section>
+
+      <section class="panel card">
+        <div class="panel-header">
+          <div>
+            <p class="section-kicker">Secure Download</p>
+            <h2>选择配置后解密下载</h2>
+          </div>
+          <p class="generated-at" id="generatedAt">正在读取清单...</p>
+        </div>
+
+        <form id="downloadForm" class="download-form">
+          <label class="field">
+            <span>配置文件</span>
+            <select id="fileSelect" name="file" required></select>
+          </label>
+
+          <label class="field">
+            <span>访问密码</span>
+            <input id="passphrase" name="passphrase" type="password" autocomplete="current-password" placeholder="输入密码后在本地解密" required>
+          </label>
+
+          <button id="downloadButton" type="submit">解密并下载</button>
+        </form>
+
+        <p class="status" id="status" role="status">清单加载中...</p>
+        <p class="notice" id="siteNotice">密码不会提交到仓库或 GitHub Pages。密码错误或文件被篡改时，解密会直接失败。</p>
+
+        <div class="file-grid" id="fileGrid" aria-live="polite"></div>
+      </section>
+    </main>
+  </body>
+</html>

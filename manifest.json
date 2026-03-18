@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "generatedAt": "2026-03-18T15:21:08.414Z",
+  "kdf": {
+    "name": "PBKDF2",
+    "hash": "SHA-256",
+    "iterations": 310000
+  },
+  "site": {
+    "title": "Encrypted Config Download",
+    "subtitle": "仓库只保存密文；浏览器在输入密码后本地解密，再生成可下载的 YAML 文件。",
+    "notice": "密码不会提交到仓库或 GitHub Pages。密码错误或文件被篡改时，解密会直接失败。"
+  },
+  "files": [
+    {
+      "id": "32b164c6daf08cdaa97e",
+      "label": "all",
+      "relativePath": "all.yaml",
+      "downloadName": "all.yaml",
+      "asset": "assets/32b164c6daf08cdaa97e.bin",
+      "mimeType": "text/yaml;charset=utf-8",
+      "plainBytes": 39903,
+      "encryptedBytes": 39954
+    },
+    {
+      "id": "f7e1c64323df6cffe645",
+      "label": "custom",
+      "relativePath": "custom.yaml",
+      "downloadName": "custom.yaml",
+      "asset": "assets/f7e1c64323df6cffe645.bin",
+      "mimeType": "text/yaml;charset=utf-8",
+      "plainBytes": 29709,
+      "encryptedBytes": 29760
+    }
+  ]
+}
