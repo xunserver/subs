@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-04-02T21:37:02.069Z",
+  "generatedAt": "2026-04-03T21:33:26.941Z",
   "kdf": {
     "name": "PBKDF2",
     "hash": "SHA-256",
@@ -19,8 +19,8 @@
       "downloadName": "all.yaml",
       "asset": "assets/32b164c6daf08cdaa97e.bin",
       "mimeType": "text/yaml;charset=utf-8",
-      "plainBytes": 39620,
-      "encryptedBytes": 39671
+      "plainBytes": 23948,
+      "encryptedBytes": 23999
     },
     {
       "id": "f7e1c64323df6cffe645",
@@ -29,8 +29,8 @@
       "downloadName": "custom.yaml",
       "asset": "assets/f7e1c64323df6cffe645.bin",
       "mimeType": "text/yaml;charset=utf-8",
-      "plainBytes": 29426,
-      "encryptedBytes": 29477
+      "plainBytes": 14084,
+      "encryptedBytes": 14135
     }
   ]
 }
