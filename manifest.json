@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "generatedAt": "2026-04-13T21:49:49.233Z",
+  "version": 3,
+  "generatedAt": "2026-04-14T01:47:11.819Z",
   "kdf": {
     "name": "PBKDF2",
     "hash": "SHA-256",
@@ -8,9 +8,70 @@
   },
   "site": {
     "title": "Encrypted Config Download",
-    "subtitle": "仓库只保存密文；浏览器在输入密码后本地解密，再生成可下载的 YAML 文件。",
-    "notice": "密码不会提交到仓库或 GitHub Pages。密码错误或文件被篡改时，解密会直接失败。"
+    "subtitle": "下载加密配置、原始密钥，并复制本地转换命令。",
+    "notice": "配置会在浏览器本地解密；私钥去密码请仅在受信任设备上执行。"
   },
+  "sections": [
+    {
+      "id": "vpn",
+      "type": "encrypted-configs",
+      "title": "VPN 配置",
+      "items": [
+        {
+          "id": "32b164c6daf08cdaa97e",
+          "label": "all",
+          "relativePath": "all.yaml",
+          "downloadName": "all.yaml",
+          "asset": "assets/32b164c6daf08cdaa97e.bin",
+          "mimeType": "text/yaml;charset=utf-8",
+          "plainBytes": 23948,
+          "encryptedBytes": 23999
+        },
+        {
+          "id": "f7e1c64323df6cffe645",
+          "label": "custom",
+          "relativePath": "custom.yaml",
+          "downloadName": "custom.yaml",
+          "asset": "assets/f7e1c64323df6cffe645.bin",
+          "mimeType": "text/yaml;charset=utf-8",
+          "plainBytes": 14084,
+          "encryptedBytes": 14135
+        }
+      ],
+      "description": "需要输入访问密码后在浏览器本地解密下载。"
+    },
+    {
+      "id": "keys",
+      "type": "key-pairs",
+      "title": "公私钥配置",
+      "items": [
+        {
+          "id": "github",
+          "title": "GitHub SSH Key",
+          "algorithm": "Ed25519",
+          "publicKeyAsset": "keys/github/id_ed25519.pub",
+          "privateKeyAsset": "keys/github/id_ed25519",
+          "publicKeyFileName": "id_ed25519.pub",
+          "privateKeyFileName": "id_ed25519",
+          "passphraseHints": [
+            "title=ssh",
+            "密钥=7856"
+          ],
+          "commands": {
+            "mac_linux": "cp ./id_ed25519 ./id_ed25519.nopass\nssh-keygen -p -P '<旧密码>' -N '' -f ./id_ed25519.nopass",
+            "windows_powershell": "Copy-Item .\\id_ed25519 .\\id_ed25519.nopass\nssh-keygen -p -P '<旧密码>' -N '' -f .\\id_ed25519.nopass"
+          },
+          "notes": "下载后建议先复制出 id_ed25519.nopass，再执行 ssh-keygen 去密码。",
+          "tags": [
+            "GitHub"
+          ],
+          "publicKeyBytes": 726,
+          "privateKeyBytes": 3414
+        }
+      ],
+      "description": "提供原始公钥、原始加密私钥、密码回忆线索和本地去密码命令。"
+    }
+  ],
   "files": [
     {
       "id": "32b164c6daf08cdaa97e",
@@ -31,6 +92,31 @@
       "mimeType": "text/yaml;charset=utf-8",
       "plainBytes": 14084,
       "encryptedBytes": 14135
+    }
+  ],
+  "keys": [
+    {
+      "id": "github",
+      "title": "GitHub SSH Key",
+      "algorithm": "Ed25519",
+      "publicKeyAsset": "keys/github/id_ed25519.pub",
+      "privateKeyAsset": "keys/github/id_ed25519",
+      "publicKeyFileName": "id_ed25519.pub",
+      "privateKeyFileName": "id_ed25519",
+      "passphraseHints": [
+        "title=ssh",
+        "密钥=7856"
+      ],
+      "commands": {
+        "mac_linux": "cp ./id_ed25519 ./id_ed25519.nopass\nssh-keygen -p -P '<旧密码>' -N '' -f ./id_ed25519.nopass",
+        "windows_powershell": "Copy-Item .\\id_ed25519 .\\id_ed25519.nopass\nssh-keygen -p -P '<旧密码>' -N '' -f .\\id_ed25519.nopass"
+      },
+      "notes": "下载后建议先复制出 id_ed25519.nopass，再执行 ssh-keygen 去密码。",
+      "tags": [
+        "GitHub"
+      ],
+      "publicKeyBytes": 726,
+      "privateKeyBytes": 3414
     }
   ]
 }
